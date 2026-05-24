@@ -12,13 +12,14 @@ function getGridSize() {
 }
 
 function createGrid(gridSize) {
+  gridContainer.replaceChildren();
   const totalGridSquares = gridSize * gridSize;
 
   for (let i = 0; i < totalGridSquares; i++) {
     let gridElement = document.createElement("div");
     gridElement.className = "gridElement";
     gridElement.style.flex = `0 0 calc(100%/${gridSize})`;
-    gridElement.style.height = `0 0 calc(100%/${gridSize})`;
+    gridElement.style.height = `calc(100%/${gridSize})`;
     gridContainer.appendChild(gridElement);
   }
 }
