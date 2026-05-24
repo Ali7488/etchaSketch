@@ -7,6 +7,7 @@ body {
   margin: 0;
   padding: 40px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -19,7 +20,9 @@ body {
 }
 
 .gridElement {
-  border: solid black 2px;
+  border: solid black 1px;
 }
 
-
+.filled {
+  background-color: pink;
+}

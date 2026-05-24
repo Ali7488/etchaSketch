@@ -1,5 +1,6 @@
 let gridContainer = document.getElementById("container");
 let gridSize = 1;
+let resizeBtn = document.getElementById("resize");
 
 function getGridSize() {
   do {
@@ -7,6 +8,7 @@ function getGridSize() {
       prompt("How many Squares would you like in your grid? (1-100)"),
     );
   } while (!Number.isInteger(gridSize) || gridSize <= 0 || gridSize > 100);
+  return gridSize;
 }
 
 function createGrid(gridSize) {
@@ -21,4 +23,26 @@ function createGrid(gridSize) {
   }
 }
 
+function enableColoring() {
+  gridContainer.addEventListener("mouseout", (event) => {
+    const box = event.target;
 
+    if (!box.classList.contains("gridElement")) {
+      return;
+    }
+
+    box.classList.add("filled");
+  });
+}
+
+function main() {
+  const gridSize = 16;
+  createGrid(gridSize);
+  enableColoring();
+  resizeBtn.addEventListener("click", () => {
+    let newGridSize = getGridSize();
+    createGrid(newGridSize);
+  });
+}
+
+main();
